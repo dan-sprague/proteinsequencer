@@ -1,4 +1,3 @@
-
 function parse_commandline()
     s = ArgParseSettings()
 
@@ -28,13 +27,7 @@ function parse_commandline()
             help = "Average basecalling accuracy"
             arg_type = Float32
             default = 0.8
-
-
-        "--replicates"
-            help = "Number of simulations"
-            arg_type = Int
-            default = 5
-
+            
         "peptides"
             help = "Path to fasta file"
             required = true

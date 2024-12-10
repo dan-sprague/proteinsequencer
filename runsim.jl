@@ -1,5 +1,8 @@
 using GlyphicSequencer
 
+
+
+
 """
     run_simulation()
 
@@ -25,19 +28,17 @@ function run_simulation(args,OUTDIR)
 
     sequencer = Sequencer(args["click"],args["oligo"],args["ligate"],args["cleave"],BaseCaller(args["acc"],AA))
     
-    @show sequencer
 
-    seqs = parse_proteome(args["peptides"];minl = 9)
+    seqs = parse_proteome(args["peptides"];minl = 6)
     peptides = [Peptide(seq.sequence,'E','C','O',"",1) for seq in seqs]
 
 
     @assert all(i.sequence != "" for i in peptides)
     
-    @inbounds for i ∈ 1:NCYCLES
+    @inbounds for i ∈ 1:args["ncycles"]
         @. peptides = sequencer(peptides)
     end
     
-    @show length(peptides)
 
     open(joinpath(OUTDIR,"sequences.fasta"),"a") do file
         i = 1
