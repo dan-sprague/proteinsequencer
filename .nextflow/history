@@ -1,0 +1,10 @@
+2024-07-23 09:35:46	-	infallible_poitras	-	9119773f9b845ab000cbe9f7a827e473	d093e18e-b5ce-4fa1-b867-49eb5864fb58	nextflow run pipeline.nf --proteome UP000005640_9606.fasta
+2024-07-23 09:54:02	-	naughty_booth	-	0d612a5486dcb4b8e4132f6772b1146d	783ba1c7-3d3e-4ce4-a67e-b2bc0389762e	nextflow run pipeline.nf --proteome UP000005640_9606.fasta
+2024-07-23 09:54:22	1.2s	zen_minsky	ERR	7229487148bb3f819214f566b1a80671	69b3d8cb-57a9-4864-92c1-92c429ca17fa	nextflow run pipeline.nf --proteome UP000005640_9606.fasta
+2024-07-23 09:55:21	2s	goofy_gauss	ERR	7229487148bb3f819214f566b1a80671	d9741e85-d0a2-48b6-8bfc-7a150c553cb3	nextflow run pipeline.nf --proteome /Users/dansprague/Documents/GlyphicConsulting/GlyphicSequencer/UP000005640_9606.fasta
+2024-07-23 09:55:53	4.2s	furious_gates	ERR	ca0a2784a4823c6fd2a1e10f4f7752d4	d5f433f2-8c4f-48f6-b8c1-43f398d27795	nextflow run pipeline.nf --proteome /Users/dansprague/Documents/GlyphicConsulting/GlyphicSequencer/UP000005640_9606.fasta
+2024-07-23 09:56:20	4s	clever_kilby	ERR	ca0a2784a4823c6fd2a1e10f4f7752d4	e1369df1-20ef-4bba-b04f-169df81c1bd8	nextflow run pipeline.nf --proteome /Users/dansprague/Documents/GlyphicConsulting/GlyphicSequencer/UP000005640_9606.fasta
+2024-07-23 09:58:04	4.9s	festering_bose	ERR	ca0a2784a4823c6fd2a1e10f4f7752d4	c815d3d5-6b17-4af9-ade7-59087606cd74	nextflow run pipeline.nf --proteome /Users/dansprague/Documents/GlyphicConsulting/GlyphicSequencer/UP000005640_9606.fasta
+2024-07-23 09:58:52	4.7s	mad_keller	ERR	7202e4e2c4d06b6afa00268b4b4fd476	8fb4aa06-65b1-448d-a637-1b152ee750a4	nextflow run pipeline.nf --proteome /Users/dansprague/Documents/GlyphicConsulting/GlyphicSequencer/UP000005640_9606.fasta
+2024-08-13 16:34:46	2.9s	mad_perlman	ERR	7202e4e2c4d06b6afa00268b4b4fd476	7fa01a17-d770-482c-b22f-8a3ba6a2896b	nextflow run pipeline.nf
+2024-08-13 16:35:21	2s	admiring_brown	ERR	3738703a7fb9f282dcf58ee3f0108ae6	21df0643-82ea-419d-9031-c2681a7d66c5	nextflow run pipeline.nf

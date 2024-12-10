@@ -8,12 +8,17 @@ using ArgParse
 using DataStructures 
 using Glob 
 using DataFrames
+using CSV 
+
+
 include("preprocess.jl")
 include("peptide.jl")
 include("basecaller.jl")
 include("sequencer.jl")
 include("simulation.jl")
-include("passanalysis.jl")
+include("scripts.jl")
+
+
 
 global const AA = collect("ACDEFGHIKLMNPQRSTVWY")
 
@@ -25,43 +30,73 @@ function parse_commandline()
             help = "Path to proteome fasta file"
             arg_type = Int
             default = 15
-        "--ratio", "-r"
-            help = "Ratio of peptides in mix, for example \"[1,100,1000]\". This also defines the number of peptides that will be sampled."
-            default = "1,1"
-
+        
+        "--click","-c"
+            help = "Path to proteome fasta file"
+            arg_type = Float32
+            default = .9
+        "--oligo","-o"
+            help = "Path to proteome fasta file"
+            arg_type = Float32
+            default = .9
+        "--ligate","-l"
+            help = "Path to proteome fasta file"
+            arg_type = Float32
+            default = .9
+        "--cleave","-v"
+            help = "Path to proteome fasta file"
+            arg_type = Float32
+            default = .9
         "--acc","-a"
             help = "Average basecalling accuracy"
             arg_type = Float32
             default = 0.8
-        "--length","-l"
+        "--length"
             help = "Protein length"
+            arg_type = Int
             default = 1000
+
+        "--lambda"
+            help = "Average fragment size"
+            arg_type = Int
+            default = 15
+
+        "--digest"
+            help = "Use protein digestion"
+            action = :store_true
+
+        "--replicates"
+            help = "Number of simulations"
+            arg_type = Int
+            default = 5
+
         "proteome"
             help = "Path to fasta file"
             required = true
-        "λ"
-            help = "Average fragment size"
-            arg_type = Int
-            required = true            
+
+        "ratio"
+            help = "Protein mixture ratio"
+            required = true 
+        
         "reads"
             help = "Number of reads"
             arg_type = Int
             required = true
+
+        "outdir"
+            help = "Output directory name"
+            arg_type = String
+            required = true 
     end
 
     return parse_args(s)
 end
 
-export AA 
-export Sequencer
-export BaseCaller
-export Peptide
-export simulate!
-export plot
-export digest
-export fragment
-export parse_proteome
 export parse_commandline
-export sample
-export pass_report 
+export run_simulation
+export blast_analysis
+export parse_contigs
+
+
+
 end # module GlyphicSequencer

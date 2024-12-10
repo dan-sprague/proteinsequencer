@@ -3,7 +3,7 @@
 
     Takes a `path` to a file of protein sequences and returns the set of sequences and the 99th %ile length for the set.
 """
-function parse_proteome(path;minl = Inf)
+function parse_proteome(path;minl = 500)
     seqs = FASTAReader(open(path)) do reader
 		[
             (

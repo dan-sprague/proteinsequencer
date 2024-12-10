@@ -17,13 +17,9 @@ end
 
 Simulates the digestion of a `peptide`` given a certain enzyme defined by `aa` and cleavage location `term`. Returns a vector of Peptide objects ready to be loaded on to the in silico sequencer.
 """
-function digest(peptide,aa;term='C')
-    if term == 'C'
-        j = vcat(0,findall(x -> x == aa,peptide),length(peptide))
-        [peptide[j[i]+1:j[i+1]] for i in 1:size(j,1) - 1]
-    else
-        error("NotImplementedError")
-    end
+function digest(peptide,r=r"(?=[TW])")
+	fragments = split(peptide,r)
+	[Peptide(frag,'E','C','O',"",1) for frag in fragments]
 end
 
 """
