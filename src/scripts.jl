@@ -7,11 +7,7 @@ CLI arguments are found in GlyphicSequencer.jl
 
 """
 function run_simulation(args,OUTDIR)
-    ratio = parse.(Int,split(args["ratio"],","))
-    r_norm = ratio ./ sum(ratio)
-    prot_reads = Int.(ceil.(args["reads"] .* r_norm))
-    n_prots = size(ratio,1)
-    λ = args["lambda"]
+    prot_reads = Int.(ceil.(args["reads"]))
 
     isdir(args["outdir"]) ? nothing : mkdir(args["outdir"])
 
@@ -19,11 +15,8 @@ function run_simulation(args,OUTDIR)
     @show args["ncycles"]
     @show args["reads"]
 
-    @show n_prots
-    @show ratio
-    @show r_norm
+
     @show prot_reads
-    @show λ
     @show args["replicates"]
 
     @show args["acc"]
@@ -32,13 +25,11 @@ function run_simulation(args,OUTDIR)
     
     @show sequencer
 
-    seqs = parse_proteome(args["proteome"];minl = 9)
-    peptides = [Peptide(seq,'E','C','O',"",1) for seq in seqs]
+    seqs = parse_proteome(args["peptides"];minl = 9)
+    peptides = [Peptide(seq.sequence,'E','C','O',"",1) for seq in seqs]
 
     for replicate ∈ 1:args["replicates"]
     
-        peptides = Peptide[]
-
         @assert all(i.sequence != "" for i in peptides)
 
 
@@ -54,13 +45,13 @@ function run_simulation(args,OUTDIR)
         dels  = Vector{Int}(undef,length(peptides))
         X = (μ_length,σ_length,μ_pos,σ_pos,μ_deletions,σ_deletions,dels)
         
-        simulate!(sequencer,peptides,X;NCYCLES = args["ncycles"])
+        @time simulate!(sequencer,peptides,X;NCYCLES = args["ncycles"])
         
 
         open(joinpath(OUTDIR,"sequences.fasta"),"a") do file
             i = 1
             for seq in seqs
-                write(file,">$(seq.id)|$(r_norm[i])\n")
+                write(file,">$(seq.id)\n")
                 write(file,"$(seq.sequence)]\n")
                 i += 1
             end

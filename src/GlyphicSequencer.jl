@@ -51,32 +51,16 @@ function parse_commandline()
             help = "Average basecalling accuracy"
             arg_type = Float32
             default = 0.8
-        "--length"
-            help = "Protein length"
-            arg_type = Int
-            default = 1000
 
-        "--lambda"
-            help = "Average fragment size"
-            arg_type = Int
-            default = 15
-
-        "--digest"
-            help = "Use protein digestion"
-            action = :store_true
 
         "--replicates"
             help = "Number of simulations"
             arg_type = Int
             default = 5
 
-        "proteome"
+        "peptides"
             help = "Path to fasta file"
             required = true
-
-        "ratio"
-            help = "Protein mixture ratio"
-            required = true 
         
         "reads"
             help = "Number of reads"
