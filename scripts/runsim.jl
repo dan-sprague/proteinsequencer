@@ -9,5 +9,4 @@ isdir(joinpath(args["outdir"],dir)) ? nothing : mkdir(joinpath(args["outdir"],di
 
 OUTDIR = joinpath(args["outdir"],dir)
 run_simulation(args,OUTDIR)
-blast_analysis(outdir)
 
