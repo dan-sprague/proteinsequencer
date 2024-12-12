@@ -3,24 +3,29 @@ function parse_commandline()
 
     @add_arg_table s begin
         "--ncycles","-n"
-            help = "Path to proteome fasta file"
+            help = "Cycles of sequencing"
             arg_type = Int
             default = 15
         
         "--click","-c"
-            help = "Path to proteome fasta file"
+            help = "Click probability"
             arg_type = Float32
             default = .9
         "--oligo","-o"
-            help = "Path to proteome fasta file"
+            help = "Oligo probability"
             arg_type = Float32
             default = .9
         "--ligate","-l"
-            help = "Path to proteome fasta file"
+            help = "Ligate probability"
             arg_type = Float32
             default = .9
         "--cleave","-v"
-            help = "Path to proteome fasta file"
+            help = "Cleave probability"
+            arg_type = Float32
+            default = .9
+
+        "--loss","-d"
+            help = "Probability of sequence loss"
             arg_type = Float32
             default = .9
         "--acc","-a"

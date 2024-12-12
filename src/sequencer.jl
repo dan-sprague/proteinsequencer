@@ -9,11 +9,12 @@ struct Sequencer
     o_rate::Float32
     l_rate::Float32
     clv_rate::Float32
+    d_rate::Float32
     basecall::BaseCaller
 
-    function Sequencer(a,b,c,d,e)
-        @assert all([a,b,c,d] .<= 1) && all([a,b,c,d] .>= 0)
-        new(a,b,c,d,e)
+    function Sequencer(a,b,c,d,e,f)
+        @assert all([a,b,c,d,e] .<= 1) && all([a,b,c,d,e] .>= 0)
+        new(a,b,c,d,e,f)
     end
 end
 
@@ -44,7 +45,11 @@ function (s::Sequencer)(x::Peptide)
 
     function ligate(x::Char)
         rand() < s.l_rate && x == 'O' ? 'L' : x
-    end 
+    end
+
+    function loss(x::Char)
+        rand() < s.d_rate && x != 'D' ? 'D' : x
+    end
     
 
     function cleave(pos::Int,state::Char,sequence::String,aas::String)

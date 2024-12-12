@@ -22,11 +22,10 @@ function run_simulation(args,OUTDIR)
 
 
     @show prot_reads
-    @show args["replicates"]
 
     @show args["acc"]
 
-    sequencer = Sequencer(args["click"],args["oligo"],args["ligate"],args["cleave"],BaseCaller(args["acc"],AA))
+    sequencer = Sequencer(args["click"],args["oligo"],args["ligate"],args["cleave"],args["loss"],BaseCaller(args["acc"],AA))
     
 
     seqs = parse_proteome(args["peptides"];minl = 6)
