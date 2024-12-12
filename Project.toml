@@ -1,6 +1,6 @@
-name = "GlyphicSequencer"
+name = "ProteinSequencer"
 uuid = "a1fbbfe1-b73c-4417-b795-7d1b34259ca6"
-authors = ["dansprague "]
+authors = ["dansprague"]
 version = "0.1.0"
 
 [deps]

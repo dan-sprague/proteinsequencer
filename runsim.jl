@@ -1,4 +1,4 @@
-using GlyphicSequencer
+using ProteinSequencer
 
 
 
@@ -8,7 +8,7 @@ using GlyphicSequencer
 
 This scripts runs a simulation given a set of parameters, creates a new directory, and saves the output inside that directory. The name of the directory contains the identifying parameters of the simulation.
 
-CLI arguments are found in GlyphicSequencer.jl
+CLI arguments are found in ProteinSequencer.jl
 
 """
 function run_simulation(args,OUTDIR)
